@@ -10,7 +10,7 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        return String.format("%" + amountOfPadding + "s",stringToBePadded);
     }
 
     /**
@@ -19,7 +19,7 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        return String.format("%-" + amountOfPadding + "s",stringToBePadded);
     }
 
     /**
@@ -28,7 +28,11 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        StringBuilder string = new StringBuilder();
+        for(int i = 0;i < numberOfTimeToRepeat;i++) {
+            string.append(stringToBeRepeated);
+        }
+        return string.toString();
     }
 
     /**
@@ -36,7 +40,9 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        String newString = string.replaceAll(" ","");
+        if (newString.matches("[A-Za-z]")) { return true;}
+        else {return false;}
     }
 
     /**
@@ -44,7 +50,12 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        try {
+            Integer.parseInt(string);
+            return true;
+        } catch (NumberFormatException e) {
+            return  false;
+        }
     }
 
     /**
@@ -52,6 +63,7 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        return (string == null) ? false : string.matches("[^A-Za-z0-9 ]");
+
     }
 }
