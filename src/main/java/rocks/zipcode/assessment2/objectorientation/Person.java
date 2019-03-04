@@ -9,6 +9,7 @@ public class Person {
     private String name;
     private Address address;
 
+
     /**
      * @param id - id of person
      * @param name - name of person
@@ -49,6 +50,10 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        if(this == o) {
+            return true;
+        } else{
+            return false;
+        }
     }
 }
