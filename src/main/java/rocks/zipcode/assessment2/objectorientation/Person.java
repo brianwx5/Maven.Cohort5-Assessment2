@@ -50,10 +50,10 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        if(this == o) {
+        if(o == this) {
             return true;
-        } else{
+        } else if (o == null) {
             return false;
-        }
+        } else{ return true;}
     }
 }
