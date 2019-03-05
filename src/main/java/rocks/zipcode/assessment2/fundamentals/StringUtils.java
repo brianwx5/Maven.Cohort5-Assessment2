@@ -40,9 +40,12 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        String newString = string.replaceAll(" ","");
-        if (newString.matches("[A-Za-z]")) { return true;}
-        else {return false;}
+//        String newString = string.replaceAll(" ","");
+//        for(int i = 0; i < string.length();i++) {
+//        if(!Character.isAlphabetic(string.charAt(i))) {
+//        return false;}
+//        } return true;
+        return string.matches("[ a-zA-Z]+");
     }
 
     /**
@@ -50,12 +53,14 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        try {
-            Integer.parseInt(string);
-            return true;
-        } catch (NumberFormatException e) {
-            return  false;
-        }
+
+        return string.matches("\\d+");
+//        try {
+//            Integer.parseInt(string);
+//            return true;
+//        } catch (NumberFormatException e) {
+//            return  false;
+//        }
     }
 
     /**
@@ -63,7 +68,7 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return (string == null) ? false : string.matches("[^A-Za-z0-9 ]");
+        return string.matches("\\W+");
 
     }
 }

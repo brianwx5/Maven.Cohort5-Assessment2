@@ -38,7 +38,12 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        return string.replaceAll(charactersToRemove,"");
+        StringBuilder newString = new StringBuilder();
+        for(char c : string.toCharArray()) {
+            if(charactersToRemove.indexOf(c) == -1) {
+                newString.append(c);
+            }
+        } return newString.toString();
 
     }
 

@@ -10,12 +10,11 @@ import rocks.zipcode.assessment2.objectorientation.Person;
 public class Animal {
     private  Long id;
     Person owner;
-    Address address;
 
     public Animal() {
         this.owner = new Person();
         this.id = null;
-        this.address = this.owner.getAddress();
+
     }
     /**
      * @param id - id of animal
@@ -24,7 +23,6 @@ public class Animal {
     public Animal(Long id, Person owner) {
         this.id = id;
         this.owner = owner;
-        this.address = owner.getAddress();
     }
 
     public Long getId() {
@@ -42,6 +40,7 @@ public class Animal {
     }
 
     public Address getAddress() {
-        return null;
+        return owner.getAddress();
     }
+
 }

@@ -76,8 +76,18 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        if(this == o) {
-            return true;
-        } else {return false;}
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Address address = (Address) o;
+
+        if (addressLine1 != null ? !addressLine1.equals(address.addressLine1) : address.addressLine1 != null)
+            return false;
+        if (addressLine2 != null ? !addressLine2.equals(address.addressLine2) : address.addressLine2 != null)
+            return false;
+        if (city != null ? !city.equals(address.city) : address.city != null) return false;
+        if (state != null ? !state.equals(address.state) : address.state != null) return false;
+        return zipcode != null ? zipcode.equals(address.zipcode) : address.zipcode == null;
     }
+
 }
